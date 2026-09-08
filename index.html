@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maquetado Web</title>
+  
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #e9e9e9;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      padding: 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .encabezado {
+      background-color: #fec260;
+      padding: 30px 20px;
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+    }
+
+    .tarjeta-encabezado {
+      display: flex;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .caja-blanca {
+      width: 45px;
+      height: 45px;
+      background-color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .contenido-tarjeta {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+    }
+
+    .linea-oscura {
+      height: 8px;
+      background-color: #555d69;
+      width: 70%;
+    }
+
+    .linea-clara {
+      height: 4px;
+      background-color: #ffffff;
+      width: 100%;
+    }
+
+    .linea-clara.corta {
+      width: 60%;
+    }
+    .seccion-principal {
+      background-color: #ffffff;
+      padding: 30px;
+      display: flex;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .caja-imagen-amarilla {
+      width: 180px;
+      height: 180px;
+      background-color: #fec260;
+      flex-shrink: 0;
+    }
+
+    .lista-barras {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      width: 100%;
+    }
+
+    .fila-barra {
+      display: flex;
+      gap: 10px;
+    }
+
+    .barra-larga {
+      height: 20px;
+      flex: 1;
+    }
+
+    .caja-corta {
+      width: 20px;
+      height: 20px;
+    }
+
+    .gris-claro {
+      background-color: #e0e0e0;
+    }
+
+    .gris-oscuro {
+      background-color: #555d69;
+    }
+    .barra-navegacion {
+      background-color: #d1d1d1;
+      padding: 12px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .linea-navegacion {
+      height: 8px;
+      border-radius: 2px;
+    }
+
+    .linea-navegacion.izquierda {
+      background-color: #ffffff;
+      width: 40%;
+    }
+
+    .grupo-derecha {
+      display: flex;
+      gap: 15px;
+      width: 35%;
+    }
+
+    .linea-navegacion.blanca {
+      background-color: #ffffff;
+      width: 50%;
+    }
+
+    .linea-navegacion.oscura {
+      background-color: #555d69;
+      width: 50%;
+    }
+    .seccion-caracteristicas {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 10px 0;
+    }
+
+    .caracteristica {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .icono-cuadrado {
+      width: 50px;
+      height: 50px;
+      background-color: #636b75;
+      margin-bottom: 5px;
+    }
+
+    .linea-caracteristica {
+      height: 6px;
+      background-color: #555d69;
+      width: 100%;
+    }
+    .linea-caracteristica.corta {
+      width: 60%;
+    }
+    .pie-pagina {
+      background-color: #ffffff;
+      padding: 30px;
+      display: flex;
+      gap: 30px;
+    }
+
+    .columna-inferior {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .titulo-falso {
+      height: 12px;
+      background-color: #d1d1d1;
+      width: 50%;
+      margin-bottom: 5px;
+    }
+
+    .linea-texto {
+      height: 6px;
+      background-color: #d1d1d1;
+      width: 100%;
+    }
+
+    .linea-texto.corta {
+      width: 70%;
+    }
+
+    .linea-texto.media {
+      width: 85%;
+    }
+
+    .contenedor-boton {
+      display: flex;
+      margin-top: 15px;
+      height: 22px;
+    }
+
+    .boton-largo {
+      background-color: #555d69;
+      width: 75%;
+    }
+
+    .boton-corto {
+      background-color: #fec260;
+      width: 25%;
+    }
+    .reproductor-video {
+      background-color: #d1d1d1;
+      height: 160px;
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .icono-reproducir {
+      width: 0;
+      height: 0;
+      border-top: 12px solid transparent;
+      border-bottom: 12px solid transparent;
+      border-left: 18px solid #ffffff;
+    }
+
+    .barra-video {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background-color: #555d69;
+    }
+    .bloque-perfil {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+
+    .foto-perfil {
+      width: 45px;
+      height: 45px;
+      background-color: #d1d1d1;
+      flex-shrink: 0;
+    }
+
+    .lineas-perfil {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      width: 100%;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <header class="encabezado">
+    <div class="tarjeta-encabezado">
+      <div class="caja-blanca"></div>
+      <div class="contenido-tarjeta">
+        <div class="linea-oscura"></div>
+        <div class="linea-clara"></div>
+        <div class="linea-clara corta"></div>
+      </div>
+    </div>
+    <div class="tarjeta-encabezado">
+      <div class="caja-blanca"></div>
+      <div class="contenido-tarjeta">
+        <div class="linea-oscura"></div>
+        <div class="linea-clara"></div>
+        <div class="linea-clara corta"></div>
+      </div>
+    </div>
+    <div class="tarjeta-encabezado">
+      <div class="caja-blanca"></div>
+      <div class="contenido-tarjeta">
+        <div class="linea-oscura"></div>
+        <div class="linea-clara"></div>
+        <div class="linea-clara corta"></div>
+      </div>
+    </div>
+    <div class="tarjeta-encabezado">
+      <div class="caja-blanca"></div>
+      <div class="contenido-tarjeta">
+        <div class="linea-oscura"></div>
+        <div class="linea-clara"></div>
+        <div class="linea-clara corta"></div>
+      </div>
+    </div>
+  </header>
+  <section class="seccion-principal">
+    <div class="caja-imagen-amarilla"></div>
+    <div class="lista-barras">
+      <div class="fila-barra">
+        <div class="barra-larga gris-claro"></div>
+        <div class="caja-corta gris-claro"></div>
+      </div>
+      <div class="fila-barra">
+        <div class="barra-larga gris-oscuro"></div>
+        <div class="caja-corta gris-oscuro"></div>
+      </div>
+      <div class="fila-barra">
+        <div class="barra-larga gris-claro"></div>
+        <div class="caja-corta gris-claro"></div>
+      </div>
+      <div class="fila-barra">
+        <div class="barra-larga gris-claro"></div>
+        <div class="caja-corta gris-claro"></div>
+      </div>
+    </div>
+  </section>
+  <nav class="barra-navegacion">
+    <div class="linea-navegacion izquierda"></div>
+    <div class="grupo-derecha">
+      <div class="linea-navegacion blanca"></div>
+      <div class="linea-navegacion oscura"></div>
+    </div>
+  </nav>
+  <section class="seccion-caracteristicas">
+    <div class="caracteristica">
+      <div class="icono-cuadrado"></div>
+      <div class="linea-caracteristica"></div>
+      <div class="linea-caracteristica"></div>
+      <div class="linea-caracteristica corta"></div>
+    </div>
+    <div class="caracteristica">
+      <div class="icono-cuadrado"></div>
+      <div class="linea-caracteristica"></div>
+      <div class="linea-caracteristica"></div>
+      <div class="linea-caracteristica corta"></div>
+    </div>
+    <div class="caracteristica">
+      <div class="icono-cuadrado"></div>
+      <div class="linea-caracteristica"></div>
+      <div class="linea-caracteristica"></div>
+      <div class="linea-caracteristica corta"></div>
+    </div>
+    <div class="caracteristica">
+      <div class="icono-cuadrado"></div>
+      <div class="linea-caracteristica"></div>
+      <div class="linea-caracteristica"></div>
+      <div class="linea-caracteristica corta"></div>
+    </div>
+  </section>
+  <footer class="pie-pagina">
+    <div class="columna-inferior">
+      <div class="titulo-falso"></div>
+      <div class="linea-texto"></div>
+      <div class="linea-texto"></div>
+      <div class="linea-texto"></div>
+      <div class="linea-texto corta"></div>
+      <div class="contenedor-boton">
+        <div class="boton-largo"></div>
+        <div class="boton-corto"></div>
+      </div>
+    </div>
+  <div class="columna-inferior">
+      <div class="reproductor-video">
+        <div class="icono-reproducir"></div>
+        <div class="barra-video"></div>
+      </div>
+    </div>
+    <div class="columna-inferior">
+      <div class="bloque-perfil">
+        <div class="foto-perfil"></div>
+        <div class="lineas-perfil">
+          <div class="linea-texto"></div>
+          <div class="linea-texto corta"></div>
+        </div>
+      </div>
+      <div class="linea-texto"></div>
+      <div class="linea-texto"></div>
+      <div class="linea-texto"></div>
+      <div class="linea-texto media"></div>
+    </div>
+  </footer>
+
+</body>
+</html>
