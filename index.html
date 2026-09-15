@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maquetado Web</title>
+  <title>Maquetado Web Completo</title>
   
   <style>
     * {
@@ -13,15 +13,74 @@
     }
 
     body {
-      background-color: #e9e9e9;
+      background-color: #8ed4d8;
       font-family: Arial, sans-serif;
+      padding: 20px 0 0 0;
       display: flex;
-      flex-direction: column;
-      gap: 20px;
-      padding: 20px;
-      max-width: 900px;
-      margin: 0 auto;
+      justify-content: center;
     }
+
+    .ventana-navegador {
+      width: 100%;
+      max-width: 900px;
+      background-color: #e9e9e9;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      border-radius: 4px 4px 0 0;
+      overflow: hidden;
+    }
+
+    .barra-pestanias {
+      background-color: #8ed4d8;
+      display: flex;
+      align-items: flex-end;
+      padding-left: 15px;
+      gap: 5px;
+      height: 35px;
+    }
+
+    .pestania {
+      height: 25px;
+      padding: 0 25px;
+      background-color: #d1d1d1;
+      border-radius: 4px 4px 0 0;
+    }
+
+    .pestania.activa {
+      background-color: #f07865;
+      width: 80px;
+    }
+
+    .pestania.larga {
+      width: 160px;
+    }
+
+    .barra-direccion {
+      background-color: #e0e0e0;
+      padding: 6px 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      border-bottom: 2px solid #ccc;
+    }
+
+    .grupo-botones {
+      display: flex;
+      gap: 4px;
+    }
+
+    .boton-navegador {
+      width: 10px;
+      height: 10px;
+      background-color: #ffffff;
+    }
+
+    .input-url {
+      background-color: #ffffff;
+      height: 22px;
+      flex: 1;
+      border-radius: 2px;
+    }
+
     .encabezado {
       background-color: #fec260;
       padding: 30px 20px;
@@ -46,14 +105,15 @@
     .contenido-tarjeta {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       width: 100%;
+      justify-content: center;
     }
 
     .linea-oscura {
-      height: 8px;
+      height: 6px;
       background-color: #555d69;
-      width: 70%;
+      width: 60%;
     }
 
     .linea-clara {
@@ -62,9 +122,6 @@
       width: 100%;
     }
 
-    .linea-clara.corta {
-      width: 60%;
-    }
     .seccion-principal {
       background-color: #ffffff;
       padding: 30px;
@@ -109,6 +166,7 @@
     .gris-oscuro {
       background-color: #555d69;
     }
+
     .barra-navegacion {
       background-color: #d1d1d1;
       padding: 12px 20px;
@@ -119,7 +177,6 @@
 
     .linea-navegacion {
       height: 8px;
-      border-radius: 2px;
     }
 
     .linea-navegacion.izquierda {
@@ -142,18 +199,20 @@
       background-color: #555d69;
       width: 50%;
     }
+
     .seccion-caracteristicas {
       display: flex;
       justify-content: space-between;
       gap: 20px;
-      padding: 10px 0;
+      padding: 30px 20px;
+      background-color: #e9e9e9;
     }
 
     .caracteristica {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       flex: 1;
     }
 
@@ -165,13 +224,15 @@
     }
 
     .linea-caracteristica {
-      height: 6px;
+      height: 4px;
       background-color: #555d69;
       width: 100%;
     }
+    
     .linea-caracteristica.corta {
       width: 60%;
     }
+
     .pie-pagina {
       background-color: #ffffff;
       padding: 30px;
@@ -185,25 +246,22 @@
       flex-direction: column;
       gap: 8px;
     }
+
     .titulo-falso {
-      height: 12px;
+      height: 10px;
       background-color: #d1d1d1;
-      width: 50%;
+      width: 40%;
       margin-bottom: 5px;
     }
 
     .linea-texto {
       height: 6px;
-      background-color: #d1d1d1;
+      background-color: #e0e0e0;
       width: 100%;
     }
 
     .linea-texto.corta {
-      width: 70%;
-    }
-
-    .linea-texto.media {
-      width: 85%;
+      width: 60%;
     }
 
     .contenedor-boton {
@@ -214,13 +272,14 @@
 
     .boton-largo {
       background-color: #555d69;
-      width: 75%;
+      width: 70%;
     }
 
     .boton-corto {
       background-color: #fec260;
-      width: 25%;
+      width: 30%;
     }
+
     .reproductor-video {
       background-color: #d1d1d1;
       height: 160px;
@@ -246,10 +305,11 @@
       height: 20px;
       background-color: #555d69;
     }
+
     .bloque-perfil {
       display: flex;
       gap: 12px;
-      margin-bottom: 10px;
+      margin-bottom: 5px;
     }
 
     .foto-perfil {
@@ -269,126 +329,155 @@
   </style>
 </head>
 <body>
-  <header class="encabezado">
-    <div class="tarjeta-encabezado">
-      <div class="caja-blanca"></div>
-      <div class="contenido-tarjeta">
-        <div class="linea-oscura"></div>
-        <div class="linea-clara"></div>
-        <div class="linea-clara corta"></div>
+
+  <div class="ventana-navegador">
+    
+    <div class="barra-pestanias">
+      <div class="pestania activa"></div>
+      <div class="pestania larga"></div>
+    </div>
+    
+    <div class="barra-direccion">
+      <div class="grupo-botones">
+        <div class="boton-navegador"></div>
+        <div class="boton-navegador"></div>
+        <div class="boton-navegador"></div>
+      </div>
+      <div class="input-url"></div>
+      <div class="grupo-botones">
+        <div class="boton-navegador"></div>
+        <div class="boton-navegador"></div>
       </div>
     </div>
-    <div class="tarjeta-encabezado">
-      <div class="caja-blanca"></div>
-      <div class="contenido-tarjeta">
-        <div class="linea-oscura"></div>
-        <div class="linea-clara"></div>
-        <div class="linea-clara corta"></div>
-      </div>
-    </div>
-    <div class="tarjeta-encabezado">
-      <div class="caja-blanca"></div>
-      <div class="contenido-tarjeta">
-        <div class="linea-oscura"></div>
-        <div class="linea-clara"></div>
-        <div class="linea-clara corta"></div>
-      </div>
-    </div>
-    <div class="tarjeta-encabezado">
-      <div class="caja-blanca"></div>
-      <div class="contenido-tarjeta">
-        <div class="linea-oscura"></div>
-        <div class="linea-clara"></div>
-        <div class="linea-clara corta"></div>
-      </div>
-    </div>
-  </header>
-  <section class="seccion-principal">
-    <div class="caja-imagen-amarilla"></div>
-    <div class="lista-barras">
-      <div class="fila-barra">
-        <div class="barra-larga gris-claro"></div>
-        <div class="caja-corta gris-claro"></div>
-      </div>
-      <div class="fila-barra">
-        <div class="barra-larga gris-oscuro"></div>
-        <div class="caja-corta gris-oscuro"></div>
-      </div>
-      <div class="fila-barra">
-        <div class="barra-larga gris-claro"></div>
-        <div class="caja-corta gris-claro"></div>
-      </div>
-      <div class="fila-barra">
-        <div class="barra-larga gris-claro"></div>
-        <div class="caja-corta gris-claro"></div>
-      </div>
-    </div>
-  </section>
-  <nav class="barra-navegacion">
-    <div class="linea-navegacion izquierda"></div>
-    <div class="grupo-derecha">
-      <div class="linea-navegacion blanca"></div>
-      <div class="linea-navegacion oscura"></div>
-    </div>
-  </nav>
-  <section class="seccion-caracteristicas">
-    <div class="caracteristica">
-      <div class="icono-cuadrado"></div>
-      <div class="linea-caracteristica"></div>
-      <div class="linea-caracteristica"></div>
-      <div class="linea-caracteristica corta"></div>
-    </div>
-    <div class="caracteristica">
-      <div class="icono-cuadrado"></div>
-      <div class="linea-caracteristica"></div>
-      <div class="linea-caracteristica"></div>
-      <div class="linea-caracteristica corta"></div>
-    </div>
-    <div class="caracteristica">
-      <div class="icono-cuadrado"></div>
-      <div class="linea-caracteristica"></div>
-      <div class="linea-caracteristica"></div>
-      <div class="linea-caracteristica corta"></div>
-    </div>
-    <div class="caracteristica">
-      <div class="icono-cuadrado"></div>
-      <div class="linea-caracteristica"></div>
-      <div class="linea-caracteristica"></div>
-      <div class="linea-caracteristica corta"></div>
-    </div>
-  </section>
-  <footer class="pie-pagina">
-    <div class="columna-inferior">
-      <div class="titulo-falso"></div>
-      <div class="linea-texto"></div>
-      <div class="linea-texto"></div>
-      <div class="linea-texto"></div>
-      <div class="linea-texto corta"></div>
-      <div class="contenedor-boton">
-        <div class="boton-largo"></div>
-        <div class="boton-corto"></div>
-      </div>
-    </div>
-  <div class="columna-inferior">
-      <div class="reproductor-video">
-        <div class="icono-reproducir"></div>
-        <div class="barra-video"></div>
-      </div>
-    </div>
-    <div class="columna-inferior">
-      <div class="bloque-perfil">
-        <div class="foto-perfil"></div>
-        <div class="lineas-perfil">
-          <div class="linea-texto"></div>
-          <div class="linea-texto corta"></div>
+
+    <header class="encabezado">
+      <div class="tarjeta-encabezado">
+        <div class="caja-blanca"></div>
+        <div class="contenido-tarjeta">
+          <div class="linea-oscura"></div>
+          <div class="linea-clara"></div>
+          <div class="linea-clara"></div>
         </div>
       </div>
-      <div class="linea-texto"></div>
-      <div class="linea-texto"></div>
-      <div class="linea-texto"></div>
-      <div class="linea-texto media"></div>
-    </div>
-  </footer>
+      <div class="tarjeta-encabezado">
+        <div class="caja-blanca"></div>
+        <div class="contenido-tarjeta">
+          <div class="linea-oscura"></div>
+          <div class="linea-clara"></div>
+          <div class="linea-clara"></div>
+        </div>
+      </div>
+      <div class="tarjeta-encabezado">
+        <div class="caja-blanca"></div>
+        <div class="contenido-tarjeta">
+          <div class="linea-oscura"></div>
+          <div class="linea-clara"></div>
+          <div class="linea-clara"></div>
+        </div>
+      </div>
+      <div class="tarjeta-encabezado">
+        <div class="caja-blanca"></div>
+        <div class="contenido-tarjeta">
+          <div class="linea-oscura"></div>
+          <div class="linea-clara"></div>
+          <div class="linea-clara"></div>
+        </div>
+      </div>
+    </header>
+
+    <section class="seccion-principal">
+      <div class="caja-imagen-amarilla"></div>
+      <div class="lista-barras">
+        <div class="fila-barra">
+          <div class="barra-larga gris-claro"></div>
+          <div class="caja-corta gris-claro"></div>
+        </div>
+        <div class="fila-barra">
+          <div class="barra-larga gris-oscuro"></div>
+          <div class="caja-corta gris-oscuro"></div>
+        </div>
+        <div class="fila-barra">
+          <div class="barra-larga gris-claro"></div>
+          <div class="caja-corta gris-claro"></div>
+        </div>
+        <div class="fila-barra">
+          <div class="barra-larga gris-claro"></div>
+          <div class="caja-corta gris-claro"></div>
+        </div>
+      </div>
+    </section>
+
+    <nav class="barra-navegacion">
+      <div class="linea-navegacion izquierda"></div>
+      <div class="grupo-derecha">
+        <div class="linea-navegacion blanca"></div>
+        <div class="linea-navegacion oscura"></div>
+      </div>
+    </nav>
+
+    <section class="seccion-caracteristicas">
+      <div class="caracteristica">
+        <div class="icono-cuadrado"></div>
+        <div class="linea-caracteristica"></div>
+        <div class="linea-caracteristica"></div>
+        <div class="linea-caracteristica corta"></div>
+      </div>
+      <div class="caracteristica">
+        <div class="icono-cuadrado"></div>
+        <div class="linea-caracteristica"></div>
+        <div class="linea-caracteristica"></div>
+        <div class="linea-caracteristica corta"></div>
+      </div>
+      <div class="caracteristica">
+        <div class="icono-cuadrado"></div>
+        <div class="linea-caracteristica"></div>
+        <div class="linea-caracteristica"></div>
+        <div class="linea-caracteristica corta"></div>
+      </div>
+      <div class="caracteristica">
+        <div class="icono-cuadrado"></div>
+        <div class="linea-caracteristica"></div>
+        <div class="linea-caracteristica"></div>
+        <div class="linea-caracteristica corta"></div>
+      </div>
+    </section>
+
+    <footer class="pie-pagina">
+      <div class="columna-inferior">
+        <div class="titulo-falso"></div>
+        <div class="linea-texto"></div>
+        <div class="linea-texto"></div>
+        <div class="linea-texto"></div>
+        <div class="linea-texto corta"></div>
+        <div class="contenedor-boton">
+          <div class="boton-largo"></div>
+          <div class="boton-corto"></div>
+        </div>
+      </div>
+
+      <div class="columna-inferior">
+        <div class="reproductor-video">
+          <div class="icono-reproducir"></div>
+          <div class="barra-video"></div>
+        </div>
+      </div>
+
+      <div class="columna-inferior">
+        <div class="bloque-perfil">
+          <div class="foto-perfil"></div>
+          <div class="lineas-perfil">
+            <div class="linea-texto"></div>
+            <div class="linea-texto corta"></div>
+          </div>
+        </div>
+        <div class="linea-texto"></div>
+        <div class="linea-texto"></div>
+        <div class="linea-texto"></div>
+        <div class="linea-texto corta"></div>
+      </div>
+    </footer>
+
+  </div>
 
 </body>
 </html>
