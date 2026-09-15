@@ -4,7 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maquetado Web Completo</title>
-  
   <style>
     * {
       box-sizing: border-box;
@@ -13,91 +12,85 @@
     }
 
     body {
-      background-color: #e9e9e9;
+      background-color: #f2f2f2;
       font-family: Arial, sans-serif;
-      padding: 20px 0 0 0;
       display: flex;
       justify-content: center;
+      padding: 30px 0;
     }
 
     .ventana-navegador {
       width: 100%;
-      max-width: 800px;
-      background-color: #e9e9e9;
-      box-shadow: none;
-      border-radius: 4px 4px 0 0;
-      overflow: hidden;
+      max-width: 750px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     }
-
     .barra-pestanias {
       background-color: #8ed4d8;
       display: flex;
       align-items: flex-end;
-      padding-left: 15px;
-      gap: 5px;
-      height: 35px;
+      padding-left: 0;
+      gap: 4px;
+      height: 28px;
     }
 
     .pestania {
-      height: 25px;
-      padding: 0 25px;
+      height: 20px;
       background-color: #d1d1d1;
-      border-radius: 4px 4px 0 0;
+      border-radius: 2px 2px 0 0;
     }
 
     .pestania.activa {
       background-color: #f07865;
-      width: 80px;
+      width: 65px;
+      height: 24px;
     }
 
     .pestania.larga {
-      width: 160px;
+      width: 150px;
     }
 
     .barra-direccion {
       background-color: #e0e0e0;
-      padding: 6px 12px;
+      padding: 5px 8px;
       display: flex;
       align-items: center;
-      gap: 10px;
-      border-bottom: 2px solid #ccc;
+      gap: 8px;
     }
 
     .grupo-botones {
       display: flex;
-      gap: 4px;
+      gap: 3px;
     }
 
     .boton-navegador {
-      width: 10px;
-      height: 10px;
+      width: 8px;
+      height: 8px;
       background-color: #ffffff;
     }
 
     .input-url {
       background-color: #ffffff;
-      height: 22px;
+      height: 18px;
       flex: 1;
-      border-radius: 2px;
     }
-
     .encabezado {
       background-color: #fec260;
-      padding: 20px 25px;
+      padding: 20px 15px;
       display: flex;
       justify-content: space-between;
-      gap: 15px;
+      gap: 12px;
     }
 
     .tarjeta-encabezado {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       flex: 1;
     }
 
     .caja-blanca {
-      width: 45px;
-      height: 45px;
+      width: 38px;
+      height: 38px;
       background-color: #ffffff;
       flex-shrink: 0;
     }
@@ -105,34 +98,35 @@
     .contenido-tarjeta {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
       width: 100%;
       justify-content: center;
     }
 
     .linea-oscura {
-      height: 6px;
+      height: 5px;
       background-color: #555d69;
       width: 60%;
     }
 
     .linea-clara {
-      height: 4px;
+      height: 3px;
       background-color: #ffffff;
-      width: 100%;
+      width: 90%;
     }
 
+    /* 3. SECCIÓN PRINCIPAL */
     .seccion-principal {
       background-color: #ffffff;
-      padding: 30px;
+      padding: 25px 20px;
       display: flex;
-      gap: 40px;
+      gap: 25px;
       align-items: center;
     }
 
     .caja-imagen-amarilla {
-      width: 150px;
-      height: 150px;
+      width: 140px;
+      height: 140px;
       background-color: #fec260;
       flex-shrink: 0;
     }
@@ -140,23 +134,23 @@
     .lista-barras {
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       width: 100%;
     }
 
     .fila-barra {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
     .barra-larga {
-      height: 18px;
+      height: 16px;
       flex: 1;
     }
 
     .caja-corta {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
     }
 
     .gris-claro {
@@ -166,17 +160,16 @@
     .gris-oscuro {
       background-color: #555d69;
     }
-
     .barra-navegacion {
       background-color: #d1d1d1;
-      padding: 12px 20px;
+      padding: 10px 15px;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
     .linea-navegacion {
-      height: 8px;
+      height: 6px;
     }
 
     .linea-navegacion.izquierda {
@@ -186,7 +179,7 @@
 
     .grupo-derecha {
       display: flex;
-      gap: 15px;
+      gap: 12px;
       width: 35%;
     }
 
@@ -199,26 +192,25 @@
       background-color: #555d69;
       width: 50%;
     }
-
     .seccion-caracteristicas {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
+      gap: 15px;
       padding: 30px 20px;
-      background-color: #e9e9e9;
+      background-color: #f2f2f2;
     }
 
     .caracteristica {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       flex: 1;
     }
 
     .icono-cuadrado {
-      width: 42x;
-      height: 42px;
+      width: 45px;
+      height: 45px;
       background-color: #636b75;
       margin-bottom: 6px;
     }
@@ -226,36 +218,37 @@
     .linea-caracteristica {
       height: 4px;
       background-color: #555d69;
-      width: 100%;
-    }
-    
-    .linea-caracteristica.corta {
-      width: 60%;
+      width: 80%;
     }
 
+    .linea-caracteristica.corta {
+      width: 50%;
+    }
+
+    /* 6. PIE DE PÁGINA */
     .pie-pagina {
       background-color: #ffffff;
-      padding: 30px;
+      padding: 25px 20px;
       display: flex;
-      gap: 30px;
+      gap: 20px;
     }
 
     .columna-inferior {
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
     }
 
     .titulo-falso {
-      height: 10px;
+      height: 8px;
       background-color: #d1d1d1;
-      width: 40%;
-      margin-bottom: 5px;
+      width: 45%;
+      margin-bottom: 4px;
     }
 
     .linea-texto {
-      height: 6px;
+      height: 4px;
       background-color: #e0e0e0;
       width: 100%;
     }
@@ -266,23 +259,23 @@
 
     .contenedor-boton {
       display: flex;
-      margin-top: 15px;
-      height: 22px;
+      margin-top: 10px;
+      height: 18px;
     }
 
     .boton-largo {
       background-color: #555d69;
-      width: 70%;
+      width: 75%;
     }
 
     .boton-corto {
       background-color: #fec260;
-      width: 30%;
+      width: 25%;
     }
 
     .reproductor-video {
       background-color: #d1d1d1;
-      height: 130px;
+      height: 120px;
       position: relative;
       display: flex;
       justify-content: center;
@@ -292,9 +285,9 @@
     .icono-reproducir {
       width: 0;
       height: 0;
-      border-top: 12px solid transparent;
-      border-bottom: 12px solid transparent;
-      border-left: 18px solid #ffffff;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 15px solid #ffffff;
     }
 
     .barra-video {
@@ -302,19 +295,19 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 20px;
+      height: 16px;
       background-color: #555d69;
     }
 
     .bloque-perfil {
       display: flex;
-      gap: 12px;
-      margin-bottom: 5px;
+      gap: 10px;
+      margin-bottom: 4px;
     }
 
     .foto-perfil {
-      width: 45px;
-      height: 45px;
+      width: 40px;
+      height: 40px;
       background-color: #d1d1d1;
       flex-shrink: 0;
     }
@@ -322,7 +315,7 @@
     .lineas-perfil {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       width: 100%;
       justify-content: center;
     }
@@ -331,7 +324,6 @@
 <body>
 
   <div class="ventana-navegador">
-    
     <div class="barra-pestanias">
       <div class="pestania activa"></div>
       <div class="pestania larga"></div>
@@ -349,8 +341,7 @@
         <div class="boton-navegador"></div>
       </div>
     </div>
-
-    <header class="encabezado">
+    <div class="encabezado">
       <div class="tarjeta-encabezado">
         <div class="caja-blanca"></div>
         <div class="contenido-tarjeta">
@@ -383,9 +374,8 @@
           <div class="linea-clara"></div>
         </div>
       </div>
-    </header>
-
-    <section class="seccion-principal">
+    </div>
+    <div class="seccion-principal">
       <div class="caja-imagen-amarilla"></div>
       <div class="lista-barras">
         <div class="fila-barra">
@@ -405,17 +395,15 @@
           <div class="caja-corta gris-claro"></div>
         </div>
       </div>
-    </section>
-
-    <nav class="barra-navegacion">
+    </div>
+    <div class="barra-navegacion">
       <div class="linea-navegacion izquierda"></div>
       <div class="grupo-derecha">
         <div class="linea-navegacion blanca"></div>
         <div class="linea-navegacion oscura"></div>
       </div>
-    </nav>
-
-    <section class="seccion-caracteristicas">
+    </div>
+    <div class="seccion-caracteristicas">
       <div class="caracteristica">
         <div class="icono-cuadrado"></div>
         <div class="linea-caracteristica"></div>
@@ -440,9 +428,8 @@
         <div class="linea-caracteristica"></div>
         <div class="linea-caracteristica corta"></div>
       </div>
-    </section>
-
-    <footer class="pie-pagina">
+    </div>
+    <div class="pie-pagina">
       <div class="columna-inferior">
         <div class="titulo-falso"></div>
         <div class="linea-texto"></div>
@@ -454,14 +441,12 @@
           <div class="boton-corto"></div>
         </div>
       </div>
-
       <div class="columna-inferior">
         <div class="reproductor-video">
           <div class="icono-reproducir"></div>
           <div class="barra-video"></div>
         </div>
       </div>
-
       <div class="columna-inferior">
         <div class="bloque-perfil">
           <div class="foto-perfil"></div>
@@ -472,10 +457,9 @@
         </div>
         <div class="linea-texto"></div>
         <div class="linea-texto"></div>
-        <div class="linea-texto"></div>
         <div class="linea-texto corta"></div>
       </div>
-    </footer>
+    </div>
 
   </div>
 
