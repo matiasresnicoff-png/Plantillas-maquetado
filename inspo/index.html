@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maquetado Web Completo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      padding: 30px 0;
+    }
+
+    .ventana-navegador {
+      width: 750px;
+      background-color: #ffffff;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    }
+    .barra-pestañas {
+      background-color: #8ed4d8;
+      display: flex;
+      align-items: flex-end;
+      padding-left: 0;
+      gap: 4px;
+      height: 28px;
+    }
+
+    .pestaña {
+      height: 20px;
+      background-color: #d1d1d1;
+      border-radius: 2px 2px 0 0;
+    }
+
+    .pestaña.activa {
+      background-color: #f07865;
+      width: 65px;
+      height: 24px;
+    }
+
+    .pestaña.larga {
+      width: 150px;
+    }
+
+    .barra-dirección {
+      background-color: #e0e0e0;
+      padding: 5px 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .grupo-botones {
+      display: flex;
+      gap: 3px;
+    }
+
+    .botón-navegador {
+      width: 8px;
+      height: 8px;
+      background-color: #ffffff;
+    }
+
+    .input-url {
+      background-color: #ffffff;
+      height: 18px;
+      flex: 1;
+    }
+    .encabezado {
+      background-color: #fec260;
+      padding: 20px 15px;
+    }
+
+    .encabezado ul {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      list-style: none;
+    }
+
+    .tarjeta-encabezado {
+      display: flex;
+      gap: 8px;
+      flex: 1;
+    }
+
+    .caja-blanca {
+      width: 38px;
+      height: 38px;
+      background-color: #ffffff;
+      flex-shrink: 0;
+    }
+
+    .contenido-tarjeta {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .línea-oscura {
+      height: 5px;
+      background-color: #555d69;
+      width: 60%;
+    }
+
+    .línea-clara {
+      height: 3px;
+      background-color: #ffffff;
+      width: 90%;
+    }
+
+    /* 3. SECCIÓN PRINCIPAL */
+    .sección-principal {
+      background-color: #ffffff;
+      padding: 25px 20px;
+      display: flex;
+      gap: 25px;
+      align-items: center;
+    }
+
+    .caja-imagen-amarilla {
+      width: 140px;
+      height: 140px;
+      background-color: #fec260;
+      flex-shrink: 0;
+    }
+
+    .lista-barras {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .fila-barra {
+      display: flex;
+      gap: 8px;
+    }
+
+    .barra-larga {
+      height: 16px;
+      flex: 1;
+    }
+
+    .caja-corta {
+      width: 16px;
+      height: 16px;
+    }
+
+    .gris-claro {
+      background-color: #e0e0e0;
+    }
+
+    .gris-oscuro {
+      background-color: #555d69;
+    }
+    .barra-navegación {
+      background-color: #d1d1d1;
+      padding: 10px 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .línea-navegación {
+      height: 6px;
+    }
+
+    .línea-navegación.izquierda {
+      background-color: #ffffff;
+      width: 40%;
+    }
+
+    .grupo-derecha {
+      display: flex;
+      gap: 12px;
+      width: 35%;
+    }
+
+    .línea-navegación.blanca {
+      background-color: #ffffff;
+      width: 50%;
+    }
+
+    .línea-navegación.oscura {
+      background-color: #555d69;
+      width: 50%;
+    }
+    .sección-características {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 30px 20px;
+      background-color: #f2f2f2;
+    }
+
+    .característica {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .icono-cuadrado {
+      width: 45px;
+      height: 45px;
+      background-color: #636b75;
+      margin-bottom: 6px;
+    }
+
+    .línea-característica {
+      height: 4px;
+      background-color: #555d69;
+      width: 80%;
+    }
+
+    .línea-característica.corta {
+      width: 50%;
+    }
+
+    /* 6. PIE DE PÁGINA */
+    .pie-página {
+      background-color: #ffffff;
+      padding: 25px 20px;
+      display: flex;
+      gap: 20px;
+    }
+
+    .columna-inferior {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .título-falso {
+      height: 8px;
+      background-color: #d1d1d1;
+      width: 45%;
+      margin-bottom: 4px;
+    }
+
+    .línea-texto {
+      height: 4px;
+      background-color: #e0e0e0;
+      width: 100%;
+    }
+
+    .línea-texto.corta {
+      width: 60%;
+    }
+
+    .contenedor-botón {
+      display: flex;
+      margin-top: 10px;
+      height: 18px;
+    }
+
+    .botón-largo {
+      background-color: #555d69;
+      width: 75%;
+    }
+
+    .botón-corto {
+      background-color: #fec260;
+      width: 25%;
+    }
+
+    .reproductor-video {
+      background-color: #d1d1d1;
+      height: 120px;
+      display: grid;
+    }
+
+    .icono-reproducir {
+      grid-area: 1 / 1;
+      place-self: center;
+      width: 0;
+      height: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 15px solid #ffffff;
+    }
+
+    .barra-video {
+      grid-area: 1 / 1;
+      align-self: end;
+      width: 100%;
+      height: 16px;
+      background-color: #555d69;
+    }
+
+    .bloque-perfil {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+
+    .foto-perfil {
+      width: 40px;
+      height: 40px;
+      background-color: #d1d1d1;
+      flex-shrink: 0;
+    }
+
+    .líneas-perfil {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      width: 100%;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ventana-navegador">
+    <div class="barra-pestañas">
+      <div class="pestaña activa"></div>
+      <div class="pestaña larga"></div>
+    </div>
+
+    <div class="barra-dirección">
+      <div class="grupo-botones">
+        <div class="botón-navegador"></div>
+        <div class="botón-navegador"></div>
+        <div class="botón-navegador"></div>
+      </div>
+      <div class="input-url"></div>
+      <div class="grupo-botones">
+        <div class="botón-navegador"></div>
+        <div class="botón-navegador"></div>
+      </div>
+    </div>
+
+    <header class="encabezado">
+      <nav>
+        <ul>
+          <li class="tarjeta-encabezado">
+            <div class="caja-blanca"></div>
+            <div class="contenido-tarjeta">
+              <div class="línea-oscura"></div>
+              <div class="línea-clara"></div>
+              <div class="línea-clara"></div>
+            </div>
+          </li>
+          <li class="tarjeta-encabezado">
+            <div class="caja-blanca"></div>
+            <div class="contenido-tarjeta">
+              <div class="línea-oscura"></div>
+              <div class="línea-clara"></div>
+              <div class="línea-clara"></div>
+            </div>
+          </li>
+          <li class="tarjeta-encabezado">
+            <div class="caja-blanca"></div>
+            <div class="contenido-tarjeta">
+              <div class="línea-oscura"></div>
+              <div class="línea-clara"></div>
+              <div class="línea-clara"></div>
+            </div>
+          </li>
+          <li class="tarjeta-encabezado">
+            <div class="caja-blanca"></div>
+            <div class="contenido-tarjeta">
+              <div class="línea-oscura"></div>
+              <div class="línea-clara"></div>
+              <div class="línea-clara"></div>
+            </div>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="sección-principal">
+        <div class="caja-imagen-amarilla"></div>
+        <div class="lista-barras">
+          <div class="fila-barra">
+            <div class="barra-larga gris-claro"></div>
+            <div class="caja-corta gris-claro"></div>
+          </div>
+          <div class="fila-barra">
+            <div class="barra-larga gris-oscuro"></div>
+            <div class="caja-corta gris-oscuro"></div>
+          </div>
+          <div class="fila-barra">
+            <div class="barra-larga gris-claro"></div>
+            <div class="caja-corta gris-claro"></div>
+          </div>
+          <div class="fila-barra">
+            <div class="barra-larga gris-claro"></div>
+            <div class="caja-corta gris-claro"></div>
+          </div>
+        </div>
+      </section>
+
+      <nav class="barra-navegación">
+        <div class="línea-navegación izquierda"></div>
+        <div class="grupo-derecha">
+          <div class="línea-navegación blanca"></div>
+          <div class="línea-navegación oscura"></div>
+        </div>
+      </nav>
+
+      <section class="sección-características">
+        <article class="característica">
+          <div class="icono-cuadrado"></div>
+          <div class="línea-característica"></div>
+          <div class="línea-característica"></div>
+          <div class="línea-característica corta"></div>
+        </article>
+        <article class="característica">
+          <div class="icono-cuadrado"></div>
+          <div class="línea-característica"></div>
+          <div class="línea-característica"></div>
+          <div class="línea-característica corta"></div>
+        </article>
+        <article class="característica">
+          <div class="icono-cuadrado"></div>
+          <div class="línea-característica"></div>
+          <div class="línea-característica"></div>
+          <div class="línea-característica corta"></div>
+        </article>
+        <article class="característica">
+          <div class="icono-cuadrado"></div>
+          <div class="línea-característica"></div>
+          <div class="línea-característica"></div>
+          <div class="línea-característica corta"></div>
+        </article>
+      </section>
+    </main>
+
+    <footer class="pie-página">
+      <div class="columna-inferior">
+        <div class="título-falso"></div>
+        <div class="línea-texto"></div>
+        <div class="línea-texto"></div>
+        <div class="línea-texto"></div>
+        <div class="línea-texto corta"></div>
+        <div class="contenedor-botón">
+          <div class="botón-largo"></div>
+          <div class="botón-corto"></div>
+        </div>
+      </div>
+      <div class="columna-inferior">
+        <div class="reproductor-video">
+          <div class="icono-reproducir"></div>
+          <div class="barra-video"></div>
+        </div>
+      </div>
+      <div class="columna-inferior">
+        <div class="bloque-perfil">
+          <div class="foto-perfil"></div>
+          <div class="líneas-perfil">
+            <div class="línea-texto"></div>
+            <div class="línea-texto corta"></div>
+          </div>
+        </div>
+        <div class="línea-texto"></div>
+        <div class="línea-texto"></div>
+        <div class="línea-texto corta"></div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
